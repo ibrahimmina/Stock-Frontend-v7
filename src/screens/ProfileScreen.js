@@ -6,9 +6,9 @@ const ProfileScreen = () => {
 
   return (
     <div>
-      <figure>{userData?.email.charAt(0).toUpperCase()}</figure>
+      <figure>{userInfo?.email.charAt(0).toUpperCase()}</figure>
       <span>
-        Welcome <strong>{userData?.email}!</strong> You can view this page
+        Welcome <strong>{userInfo?.email}!</strong> You can view this page
         because you're logged in
       </span>
     </div>
