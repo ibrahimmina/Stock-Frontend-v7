@@ -1,11 +1,11 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const backendURL = "http://localhost:5001";
+const backendURL = "https://stock-app-backend-v2.vercel.app/";
 // const backendURL = 'http://127.0.0.1:5000'
 
 export const userLogin = createAsyncThunk(
-  "user/login",
+  "users/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
@@ -16,13 +16,13 @@ export const userLogin = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${backendURL}/api/user/login`,
+        `${backendURL}/api/users/login`,
         { email, password },
         config
       );
 
       // store user's token in local storage
-      localStorage.setItem("userToken", data.userToken);
+      localStorage.setItem("userToken", data.token);
 
       return data;
     } catch (error) {
@@ -37,7 +37,7 @@ export const userLogin = createAsyncThunk(
 );
 
 export const registerUser = createAsyncThunk(
-  "user/register",
+  "users/register",
   async ({ userName, email, password }, { rejectWithValue }) => {
     try {
       const config = {
@@ -47,7 +47,7 @@ export const registerUser = createAsyncThunk(
       };
 
       await axios.post(
-        `${backendURL}/api/user/register`,
+        `${backendURL}/api/users/register`,
         { userName, email, password },
         config
       );
