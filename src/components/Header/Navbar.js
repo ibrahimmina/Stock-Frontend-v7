@@ -18,7 +18,7 @@ const Navbar = () => {
     if (data) dispatch(setCredentials(data));
   }, [data, dispatch]);
   return (
-    <nav class="header-nav ms-auto">
+    <div class="d-flex align-items-center justify-content-between">
       {userInfo ? (
         <ul class="d-flex align-items-center">
           <li class="nav-item dropdown">
@@ -152,7 +152,7 @@ const Navbar = () => {
           </li>
         </ul>
       )}
-    </nav>
+    </div>
   );
 };
 
