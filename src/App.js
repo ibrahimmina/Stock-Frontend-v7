@@ -11,8 +11,11 @@ import ProfileScreen from "./screens/ProfileScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProtectedRoute from "./routing/ProtectedRoute";
 import "./App.css";
+import Axios from "axios";
 
 function App() {
+  Axios.defaults.baseURL =
+    process.env.REACT_APP_BASE_URL || "https://stock-app-backend-v2.vercel.app";
   return (
     <Router>
       <Header />
